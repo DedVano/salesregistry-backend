@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e4ef41-5414-404b-994f-795f62855fd7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/SalesRegistryBackendApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/converter/GoodEntityMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/domain/FolderEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/domain/GoodEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/domain/GoodsCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/domain/IncludedFolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/domain/IncludedGood.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/dto/GoodEntityResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/dto/GoodsCategoryResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/su/dedvano/repository/GoodRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V20230226.0113__create_schemas_for_bounded_contexts.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V20230226.0116__create_table_categories.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V20230226.0117__create_table_goods.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V20230226.2156__create_table_folders.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V20230226.2231__create_table_included_folders.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V20230226.2236__create_table_included_goods.sql" afterDir="false" />
-    </list>
+    <list default="true" id="b1e4ef41-5414-404b-994f-795f62855fd7" name="Changes" comment="feat: base config; goods and folders entities implementation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/VanOdium/IdeaProjects/salesregistry-backend/src/main/resources/db/migration",
+    "last_opened_file_path": "C:/Users/VanOdium/IdeaProjects/salesregistry-backend/src/main/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -99,6 +66,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\VanOdium\IdeaProjects\salesregistry-backend\src\main\resources" />
       <recent name="C:\Users\VanOdium\IdeaProjects\salesregistry-backend\src\main\resources\db\migration" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -137,8 +105,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677332431693</updated>
-      <workItem from="1677332433607" duration="17489000" />
+      <workItem from="1677332433607" duration="17812000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: base config; goods and folders entities implementation">
+      <created>1677441455235</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677441455235</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +130,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: base config; goods and folders entities implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: base config; goods and folders entities implementation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
