@@ -15,8 +15,8 @@ import java.util.UUID;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "included_goods", schema = "goods")
-public class IncludedGood {
+@Table(name = "included_products", schema = "goods")
+public class IncludedProduct {
 
     @Id
     @Generated
@@ -24,11 +24,11 @@ public class IncludedGood {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "folder_id")
-    private FolderEntity folder;
+    private Folder folder;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "good_id")
-    private GoodEntity includedGood;
+    @JoinColumn(name = "product_id")
+    private Product includedProduct;
 
     private Integer orderInFolder;
 }

@@ -20,8 +20,8 @@ import java.util.UUID;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "goods", schema = "goods")
-public class GoodEntity {
+@Table(name = "products", schema = "goods")
+public class Product {
 
     @Id
     @Generated
@@ -37,10 +37,10 @@ public class GoodEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id")
-    private GoodsCategory category;
+    private ProductsCategory category;
 
-    @OneToMany(mappedBy = "includedGood", cascade = CascadeType.ALL)
-    private Set<IncludedGood> existsInFolders = new HashSet<>();
+    @OneToMany(mappedBy = "includedProduct", cascade = CascadeType.ALL)
+    private Set<IncludedProduct> existsInFolders = new HashSet<>();
 
     private int color;
 

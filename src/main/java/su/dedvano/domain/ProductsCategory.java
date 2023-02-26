@@ -14,8 +14,8 @@ import java.util.UUID;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "goods_categories", schema = "goods")
-public class GoodsCategory {
+@Table(name = "products_categories", schema = "goods")
+public class ProductsCategory {
 
     @Id
     @EqualsAndHashCode.Include
@@ -26,7 +26,7 @@ public class GoodsCategory {
     private int orderInReport;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    Set<GoodEntity> goods;
+    Set<Product> products;
 
     private boolean deleted;
 }

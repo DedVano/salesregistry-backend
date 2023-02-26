@@ -1,4 +1,4 @@
-create table goods.goods_categories
+create table goods.products_categories
 (
     id              uuid      not null primary key,
     name            text      not null,

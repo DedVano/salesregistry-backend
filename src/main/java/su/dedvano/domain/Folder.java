@@ -19,7 +19,7 @@ import java.util.UUID;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "folders", schema = "goods")
-public class FolderEntity {
+public class Folder {
 
     @Id
     @Generated
@@ -39,7 +39,7 @@ public class FolderEntity {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "folder", cascade = CascadeType.ALL)
-    private Set<IncludedGood> includedGoods = new HashSet<>();
+    private Set<IncludedProduct> includedProducts = new HashSet<>();
 
     private int color;
 

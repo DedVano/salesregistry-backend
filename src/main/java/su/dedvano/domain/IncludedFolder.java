@@ -24,11 +24,11 @@ public class IncludedFolder {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "folder_id")
-    private FolderEntity folder;
+    private Folder folder;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "included_folder_id")
-    private FolderEntity includedFolder;
+    private Folder includedFolder;
 
     private int orderInFolder;
 }

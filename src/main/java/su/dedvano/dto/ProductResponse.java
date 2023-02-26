@@ -1,15 +1,13 @@
 package su.dedvano.dto;
 
-import su.dedvano.domain.GoodsCategory;
-
 import java.util.UUID;
 
-public record GoodEntityResponse(
+public record ProductResponse(
         UUID id,
         String name,
         int price,
         boolean variablePrice,
-        GoodsCategory category,
+        ProductsCategoryResponse category,
         int color
 ) {
 }
