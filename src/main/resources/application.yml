@@ -1,0 +1,47 @@
+---
+spring:
+  application:
+    name: salesregistry-backend-app
+  datasource:
+    url: jdbc:postgresql://localhost:5433/salesregistry
+    username: salesregistry
+    password: salesregistry
+  jpa:
+    show-sql: true
+#    properties:
+#      hibernate:
+#        jdbc:
+#          batch_size: 50
+#        order_inserts: true
+#        order_updates: true
+  main:
+    banner-mode: log
+    allow-bean-definition-overriding: true
+  flyway:
+    out-of-order: true
+
+#keycloak:
+#  realm: posylochka
+#  auth-server-url: https://auth.posylochka.su
+#  ssl-required: external
+#  resource: server_app
+#  credentials:
+#    secret: dUqnVDxI2tpoll9mYIijEwQKR6XW1d3C
+#  use-resource-role-mappings: true
+#  bearer-only: true
+
+server:
+  error:
+    include-message: always
+  compression:
+    enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/salesregistry
+    username: salesregistry
+    password: salesregistry
