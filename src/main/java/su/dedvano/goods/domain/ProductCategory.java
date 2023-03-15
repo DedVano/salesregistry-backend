@@ -1,23 +1,25 @@
-package su.dedvano.domain;
+package su.dedvano.goods.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "products_categories", schema = "goods")
-public class ProductsCategory {
+public class ProductCategory {
 
     @Id
+    @GeneratedValue
     @EqualsAndHashCode.Include
     private UUID id;
 
@@ -26,7 +28,8 @@ public class ProductsCategory {
     private int orderInReport;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    Set<Product> products;
+    List<Product> products;
 
     private boolean deleted;
+
 }

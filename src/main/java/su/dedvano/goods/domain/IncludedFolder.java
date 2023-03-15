@@ -1,11 +1,12 @@
-package su.dedvano.domain;
+package su.dedvano.goods.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Generated;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,20 +16,24 @@ import java.util.UUID;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "included_products", schema = "goods")
-public class IncludedProduct {
+@Table(name = "included_folders", schema = "goods")
+public class IncludedFolder {
 
     @Id
-    @Generated
+    @GeneratedValue
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "folder_id")
-    private Folder folder;
+    private Folder containerFolder;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "product_id")
-    private Product includedProduct;
+    @JoinColumn(name = "included_folder_id")
+    private Folder folder;
 
-    private Integer orderInFolder;
+    @Column(name = "row_in_folder")
+    private int row;
+    @Column(name = "column_in_folder")
+    private int column;
+
 }

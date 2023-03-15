@@ -1,4 +1,4 @@
-package su.dedvano.dto;
+package su.dedvano.goods.dto.response;
 
 import java.util.UUID;
 
@@ -7,7 +7,8 @@ public record ProductResponse(
         String name,
         int price,
         boolean variablePrice,
-        ProductsCategoryResponse category,
+        ProductCategoryResponse category,
         int color
 ) {
+
 }

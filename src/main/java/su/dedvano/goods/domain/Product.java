@@ -1,12 +1,13 @@
-package su.dedvano.domain;
+package su.dedvano.goods.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Generated;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,7 +25,7 @@ import java.util.UUID;
 public class Product {
 
     @Id
-    @Generated
+    @GeneratedValue
     @EqualsAndHashCode.Include
     private UUID id;
 
@@ -35,11 +36,13 @@ public class Product {
 
     private boolean variablePrice;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id")
-    private ProductsCategory category;
+    private ProductCategory category;
 
-    @OneToMany(mappedBy = "includedProduct", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<IncludedProduct> existsInFolders = new HashSet<>();
 
     private int color;

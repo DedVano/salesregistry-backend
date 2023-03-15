@@ -1,0 +1,15 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{groovy,java}]
+indent_style = space
+indent_size = 4
+ij_any_blank_lines_after_class_header = 1
+ij_any_blank_lines_before_class_end = 1
+ij_wrap_on_typing = true
+ij_continuation_indent_size = 8

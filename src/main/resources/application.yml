@@ -21,12 +21,12 @@ spring:
     out-of-order: true
 
 #keycloak:
-#  realm: posylochka
-#  auth-server-url: https://auth.posylochka.su
+#  realm: testrealm
+#  auth-server-url: https://testsales.su
 #  ssl-required: external
 #  resource: server_app
 #  credentials:
-#    secret: dUqnVDxI2tpoll9mYIijEwQKR6XW1d3C
+#    secret: tmpsecret
 #  use-resource-role-mappings: true
 #  bearer-only: true
 

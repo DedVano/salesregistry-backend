@@ -1,12 +1,12 @@
-package su.dedvano.domain;
+package su.dedvano.goods.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Generated;
 import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,7 +22,7 @@ import java.util.UUID;
 public class Folder {
 
     @Id
-    @Generated
+    @GeneratedValue
     @EqualsAndHashCode.Include
     private UUID id;
 
@@ -34,14 +34,15 @@ public class Folder {
     private int sizeColumns = 1;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "folder")
+    @OneToMany(mappedBy = "containerFolder")
     private Set<IncludedFolder> includedFolders = new HashSet<>();
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "folder", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "containerFolder", cascade = CascadeType.ALL)
     private Set<IncludedProduct> includedProducts = new HashSet<>();
 
     private int color;
 
     private boolean deleted;
+
 }
