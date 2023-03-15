@@ -66,12 +66,12 @@ public class FolderService {
                 );
     }
 
-    public Set<IncludedFolder> getIncludedFolders(UUID id) {
+    public Set<IncludedFolder> showIncludedFolders(UUID id) {
         Assert.notNull(id, "id must not be null");
         return folderRepository.findById(id).orElseThrow(FolderNotFoundException::new).getIncludedFolders();
     }
 
-    public Set<IncludedProduct> getIncludedProducts(UUID id) {
+    public Set<IncludedProduct> showIncludedProducts(UUID id) {
         Assert.notNull(id, "id must not be null");
         return folderRepository.findById(id).orElseThrow(FolderNotFoundException::new).getIncludedProducts();
     }

@@ -46,7 +46,7 @@ public class FoldersController {
 
     @GetMapping("/{id}/products")
     public List<IncludedProductResponse> showProducts(@PathVariable UUID id) {
-        Set<IncludedProduct> includedProducts = folderService.getIncludedProducts(id);
+        Set<IncludedProduct> includedProducts = folderService.showIncludedProducts(id);
         List<IncludedProduct> products = includedProducts.stream().toList();
         return includedProductMapper.toResponse(products);
     }
