@@ -1,5 +1,7 @@
 package su.dedvano.goods.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,33 +26,39 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/categories")
-public class ProductCategoriesController {
+@Tag(name = "Категории товаров")
+public class ProductCategoryController {
 
     private final ProductCategoryService categoryService;
     private final ProductCategoryMapper categoryMapper;
     private final ProductMapper productMapper;
 
+    @Operation(summary = "показать все")
     @GetMapping
     public List<ProductCategoryResponse> findAll() {
         return categoryMapper.toResponse(categoryService.findAll());
     }
 
+    @Operation(summary = "найти по id")
     @GetMapping("/{id}")
     public ProductCategoryResponse findById(@PathVariable UUID id) {
         return categoryMapper.toResponse(categoryService.findById(id));
     }
 
+    @Operation(summary = "показать товары в категории")
     @GetMapping("/{id}/products")
     public List<ProductResponse> showProducts(@PathVariable UUID id) {
         return productMapper.toResponse(categoryService.showProducts(id));
     }
 
+    @Operation(summary = "создать новую")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ProductCategoryResponse create(@RequestBody @Valid ProductCategoryRequest request) {
         return categoryMapper.toResponse(categoryService.create(request));
     }
 
+    @Operation(summary = "изменить категорию")
     @PutMapping("/{id}")
     public ProductCategoryResponse update(@PathVariable UUID id, @RequestBody @Valid ProductCategoryRequest request) {
         return categoryMapper.toResponse(categoryService.update(id, request));

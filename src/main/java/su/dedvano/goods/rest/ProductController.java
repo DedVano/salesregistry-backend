@@ -1,5 +1,7 @@
 package su.dedvano.goods.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,17 +22,20 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/products")
-public class ProductsController {
+@Tag(name = "Товары")
+public class ProductController {
 
     private final ProductService productService;
     private final ProductMapper productMapper;
 
+    @Operation(summary = "создать новый")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ProductResponse create(@RequestBody @Valid ProductRequest request) {
         return productMapper.toResponse(productService.create(request));
     }
 
+    @Operation(summary = "изменить товар")
     @PutMapping("/{id}")
     public ProductResponse update(@PathVariable UUID id, @RequestBody @Valid ProductRequest request) {
         return productMapper.toResponse(productService.update(id, request));
