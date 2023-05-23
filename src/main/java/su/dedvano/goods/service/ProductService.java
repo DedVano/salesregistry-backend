@@ -2,6 +2,7 @@ package su.dedvano.goods.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 import su.dedvano.goods.domain.Product;
 import su.dedvano.goods.dto.request.ProductRequest;
 import su.dedvano.goods.exception.CategoryNotFoundException;
@@ -24,15 +25,19 @@ public class ProductService {
     }
 
     public Product create(ProductRequest request) {
+        Assert.notNull(request, "request must not be null");
         return productRepository.save(setParams(new Product(), request));
     }
 
     public Product update(UUID id, ProductRequest request) {
+        Assert.notNull(id, "id must not be null");
+        Assert.notNull(request, "request must not be null");
         var product = productRepository.findById(id).orElseThrow(ProductNotFoundException::new);
         return productRepository.save(setParams(product, request));
     }
 
     public Product findById(UUID id) {
+        Assert.notNull(id, "id must not be null");
         return productRepository.findById(id).orElseThrow(ProductNotFoundException::new);
     }
 
@@ -41,11 +46,13 @@ public class ProductService {
                 .setName(request.name())
                 .setPrice(request.price())
                 .setVariablePrice(request.variablePrice())
-                .setCategory(request.categoryId() == null ?
-                        null :
-                        categoryRepository
-                                .findById(request.categoryId())
-                                .orElseThrow(CategoryNotFoundException::new))
+                .setCategory(
+                        request.categoryId() == null ?
+                                null :
+                                categoryRepository
+                                        .findById(request.categoryId())
+                                        .orElseThrow(CategoryNotFoundException::new)
+                )
                 .setColor(request.color());
     }
 
