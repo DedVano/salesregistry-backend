@@ -1,4 +1,4 @@
-package su.dedvano.goods.rest;
+package su.dedvano.goods.rest.admin;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,9 +21,9 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/products")
-@Tag(name = "Товары")
-public class ProductController {
+@RequestMapping("/v1/admin/products")
+@Tag(name = "Управление товарами")
+public class ProductAdminController {
 
     private final ProductService productService;
     private final ProductMapper productMapper;

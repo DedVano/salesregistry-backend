@@ -26,6 +26,11 @@ public class FolderService {
         this.productService = productService;
     }
 
+    public Folder getById(UUID id) {
+        Assert.notNull(id, "id must not be null");
+        return folderRepository.findById(id).orElseThrow(FolderNotFoundException::new);
+    }
+
     public Folder create(FolderRequest request) {
         Assert.notNull(request, "request must not be null");
         return folderRepository.save(setParams(new Folder(), request));

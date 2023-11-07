@@ -1,5 +1,6 @@
 package su.dedvano.goods.service;
 
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -22,15 +23,6 @@ public class ProductCategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<ProductCategory> findAll() {
-        return categoryRepository.findAllByDeletedFalse();
-    }
-
-    public ProductCategory findById(UUID id) {
-        Assert.notNull(id, "id must not be null");
-        return categoryRepository.findById(id).orElseThrow(CategoryNotFoundException::new);
-    }
-
     public ProductCategory create(ProductCategoryRequest request) {
         Assert.notNull(request, "request must not be null");
         return categoryRepository.save(setParams(new ProductCategory(), request));
@@ -42,9 +34,22 @@ public class ProductCategoryService {
         return categoryRepository.save(setParams(findById(id), request));
     }
 
-    public List<Product> showProducts(UUID id) {
+    @Transactional(readOnly = true)
+    public List<ProductCategory> findAll() {
+        return categoryRepository.findAllByDeletedFalse();
+    }
+
+    @Transactional(readOnly = true)
+    public ProductCategory findById(UUID id) {
         Assert.notNull(id, "id must not be null");
-        return findById(id).getProducts();
+        return categoryRepository.findById(id).orElseThrow(CategoryNotFoundException::new);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Product> showProducts(UUID id) {
+        var products = findById(id).getProducts();
+        Hibernate.initialize(products);
+        return products;
     }
 
     private ProductCategory setParams(ProductCategory category, ProductCategoryRequest request) {

@@ -57,6 +57,7 @@ class ProductServiceIT extends IntegrationTest {
         createdProduct.variablePrice == variablePrice
         createdProduct.category.id == categoryId
         createdProduct.color == color
+        !createdProduct.deleted
     }
 
     def 'throw exception when try to create product with null request'() {
@@ -93,6 +94,7 @@ class ProductServiceIT extends IntegrationTest {
         def updatedProduct = sut.update(product.id, request)
 
         then:
+        updatedProduct.id == product.id
         updatedProduct.name == updatedName
         updatedProduct.price == updatedPrice
         updatedProduct.variablePrice == updatedVariablePrice

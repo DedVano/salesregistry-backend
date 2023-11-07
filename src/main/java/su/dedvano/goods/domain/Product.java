@@ -6,7 +6,6 @@ import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -37,7 +36,7 @@ public class Product {
     private boolean variablePrice;
 
     @ToString.Exclude
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne/*(fetch = FetchType.LAZY, optional = false)*/
     @JoinColumn(name = "category_id")
     private ProductCategory category;
 
